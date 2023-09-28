@@ -1,0 +1,6 @@
+version: "4.23"
+
+services:
+flask_app:
+  container_name: flask_app
+  image:
