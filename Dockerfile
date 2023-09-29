@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM python:3.8-slim
 
 WORKDIR /app
 
@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 4000
 
-CMD [ "flask", "run", "--host=0.0.0.0", "port=4000"]
+CMD [ "flask", "run", "--host=0.0.0.0", "--port=4000"]
