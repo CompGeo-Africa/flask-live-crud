@@ -1,26 +1,26 @@
 version: "4.24"
 
 services:
-  flask_app:
-    container_name: flask_app
-    image: zibusisoncube/flask_live_app:1.0.0
+  econetbackendtest_app:
+    container_name: EconetBackendTest_app
+    image: zibusisoncube-EconetBackendTest_live_app:1.0.0
     build: .
     ports:
-      - "4000:4000"
+      - "4001:4001"
     environment:
-      - DB_URL=postgresql://postgres:postgres@flask_db:5432/postgres
+      - DB_URL=postgresql://admin:admin@econetbackendtest_db:5432/econetdb
     depends_on:
-      - flask_db
-  flask_db:
-    container_name: flask_db
+      - econetbackendtest_db
+  econetbackendtest_db:
+    container_name: econetbackendtest_db
     image: postgres:12
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=econetdb
     volumes:
-      - pgdata:/var/lib/postgresql/data 
+      - econetdata:/var/lib/postgresql/database 
 volumes:
-  pgdata: {}   
+  econetdata: {}   
